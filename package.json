@@ -8,7 +8,7 @@
     "build-babel": "babel -d ./build ./src",
     "dev": "babel-node src/main.js",
     "build": "yarn run clean && yarn run build-babel",
-    "start": "yarn run build && node ./build/main.js",
+    "start": "node ./build/main.js",
     "test": "yarn install"
   },
   "dependencies": {
