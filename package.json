@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node src/main.js",
-    "test": "yarn install"
+    "test": "npm install"
   },
   "dependencies": {
     "discord.js": "^11.4.2",
