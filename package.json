@@ -22,7 +22,7 @@
     "mysql": "^2.16.0",
     "node-cron": "^2.0.1",
     "nodemon": "^1.18.4",
-    "puppeteer": "^1.4.0",
+    "puppeteer": "^1.8.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
