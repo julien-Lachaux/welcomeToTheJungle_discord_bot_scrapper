@@ -20,7 +20,7 @@ var getJobsOffers = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return _puppeteer2.default.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+                        return _puppeteer2.default.launch({ args: ['--no-sandbox'] });
 
                     case 2:
                         browser = _context.sent;
