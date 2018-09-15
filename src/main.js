@@ -21,7 +21,7 @@ console.log('config \r')
 console.log(process.env.BOT_TOKEN)
 
 async function getJobsOffers(villes, contrats, pagination, query = '', callback = (result) => {}) {
-    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     // construction de l'url à scrapper
