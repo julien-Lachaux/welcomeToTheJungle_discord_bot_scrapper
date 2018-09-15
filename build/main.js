@@ -20,7 +20,7 @@ var getJobsOffers = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return _puppeteer2.default.launch();
+                        return _puppeteer2.default.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 
                     case 2:
                         browser = _context.sent;
@@ -247,6 +247,11 @@ var _nodeCron = require('node-cron');
 var _nodeCron2 = _interopRequireDefault(_nodeCron);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+require('dotenv').config();
+
+console.log('config \r');
+console.log(process.env.BOT_TOKEN);
 
 var Discord = require('discord.js');
 var bot = new Discord.Client();
