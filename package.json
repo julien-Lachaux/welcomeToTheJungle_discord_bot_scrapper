@@ -8,8 +8,8 @@
     "build-babel": "babel -d ./build ./src",
     "dev": "babel-node src/main.js",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/main.js",
-    "test": "echo \"Error: no test specified\""
+    "start": "node ./build/main.js",
+    "test": "npm run build"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
