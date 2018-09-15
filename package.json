@@ -7,9 +7,9 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src",
     "dev": "babel-node src/main.js",
-    "build": "yarn run clean && yarn run build-babel",
+    "build": "npm install && npm run clean && npm run build-babel",
     "start": "node ./build/main.js",
-    "test": "yarn install"
+    "test": "npm install"
   },
   "dependencies": {
     "discord.js": "^11.4.2",
