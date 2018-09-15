@@ -20,7 +20,7 @@ var getJobsOffers = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return _puppeteer2.default.launch({ args: ['--no-sandbox'] });
+                        return _puppeteer2.default.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 
                     case 2:
                         browser = _context.sent;
@@ -246,7 +246,22 @@ var _nodeCron = require('node-cron');
 
 var _nodeCron2 = _interopRequireDefault(_nodeCron);
 
+var _express = require('express');
+
+var _express2 = _interopRequireDefault(_express);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = (0, _express2.default)();
+var port = process.env.PORT || 3000;
+
+app.get('/', function (req, res) {
+    res.send('BOT ONLINE');
+});
+
+app.listen(port, function () {
+    console.log('App listening on port ' + port);
+});
 
 require('dotenv').config();
 
