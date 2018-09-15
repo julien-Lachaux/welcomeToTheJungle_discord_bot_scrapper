@@ -9,7 +9,7 @@
     "dev": "babel-node src/main.js",
     "build": "yarn run clean && yarn run build-babel",
     "start": "node ./build/main.js",
-    "test": "yarn install && heroku buildpacks:set https://github.com/jontewks/puppeteer-heroku-buildpack.git"
+    "test": "yarn install"
   },
   "dependencies": {
     "discord.js": "^11.4.2",

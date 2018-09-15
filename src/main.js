@@ -4,7 +4,7 @@ import puppeteer from 'puppeteer'
 import cron from 'node-cron'
 
 async function getJobsOffers(villes, contrats, pagination, query = '', callback = (result) => {}) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
     const page = await browser.newPage();
 
     // construction de l'url à scrapper
