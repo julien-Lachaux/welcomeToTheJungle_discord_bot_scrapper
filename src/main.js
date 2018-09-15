@@ -2,6 +2,18 @@ import fs           from 'fs'
 import path         from 'path'
 import puppeteer from 'puppeteer'
 import cron from 'node-cron'
+import express from 'express'
+
+const app = express()
+const port = process.env.PORT || 3000;
+
+app.get('/', function(req, res) {
+    res.send('BOT ONLINE');
+});
+
+app.listen(port, function() {
+    console.log('App listening on port ' + port)
+})
 
 require('dotenv').config()
 
