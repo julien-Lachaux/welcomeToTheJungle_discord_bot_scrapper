@@ -13,7 +13,7 @@
     "build": "npm run clean && npm run build-babel",
     "start": "node ./build/main.js",
     "test": "echo \"no test specified !\"",
-    "production": "git pull && npm run build && forever start -w build/main.js"
+    "production": "git pull && npm run build && forever start build/main.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
