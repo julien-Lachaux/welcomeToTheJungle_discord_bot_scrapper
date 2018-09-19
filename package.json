@@ -12,13 +12,15 @@
     "dev": "babel-node src/main.js",
     "build": "npm run clean && npm run build-babel",
     "start": "node ./build/main.js",
-    "test": "echo \"no test specified !\""
+    "test": "echo \"no test specified !\"",
+    "production": "node ./build/main."
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "discord.js": "^11.4.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "mustache-express": "^1.2.7",
     "mysql": "^2.16.0",
     "node-cron": "^2.0.1",
     "nodemon": "^1.18.4",

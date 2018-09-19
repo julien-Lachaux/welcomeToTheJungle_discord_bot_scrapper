@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BotDiscord - Scrapper Welcome to the jungle</title>
+    <link rel="stylesheet" href="/public/assets/css/jobsList.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="img-container">
+            <img src="https://1.bp.blogspot.com/-wO2yzWEKum4/Ww5QF85KK4I/AAAAAAAABYI/msn8teZF04cd8taxjNXfEipwLUYs3Z-qgCLcBGAs/s1600/1483495642945.png" alt="bot discord">
+        </div>
+        <section class="title">
+            <h1>Bot Discord</h1>
+            <h2>Scrapper Welcome To The Jungle</h2>
+        </section>
+        <div class="img-container">
+            <img src="https://cdn.welcometothejungle.co/wttj-front/assets/images/logos/wttj-square.svg?v=3d08f2d8bd6c511554a458de77694a89" alt="welcome to the jungle logo">
+        </div>
+    </header>
+    <section class="jobs"> 
+        {{ #jobs }}
+            <article class="job">
+                <aside class="thumbnail"><img src="{{ logo }}" alt="{{ entreprise }}"></aside>
+                <div class="info">
+                    <ul>
+                        <li class="entreprise">{{ entreprise }}</li>
+                        <li class="poste">{{ poste }}</li>
+                        <li class="contrat">{{ contrat }}</li>
+                        <li class="ville">{{ ville }}</li>
+                        <li class="date">{{ date }}</li>
+                    </ul>
+                    <a href="{{ href }}" target="_blank" class="link">Liens de l'annonce</a>
+                </div>
+            </article>
+        {{ /jobs }}
+    </section>
+</body>
+</html>

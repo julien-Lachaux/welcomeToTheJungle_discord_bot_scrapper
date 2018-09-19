@@ -3,12 +3,22 @@ import path         from 'path'
 import puppeteer from 'puppeteer'
 import cron from 'node-cron'
 import express from 'express'
+import mustacheExpress from 'mustache-express'
 
 const app = express()
 const port = process.env.PORT || 3000;
 
+app.engine('html', mustacheExpress())
+app.set('view engine', 'html')
+app.set('views', 'views/')
+app.use('/public', express.static('public'));
+
 app.get('/', function(req, res) {
-    res.send('BOT ONLINE');
+    let data = {
+        jobs: JSON.parse(fs.readFileSync('data/history.json', "utf8"), false)
+    }
+    console.log(data)
+    res.render('jobsList', data);
 });
 
 app.listen(port, function() {
@@ -19,6 +29,12 @@ require('dotenv').config()
 
 console.log('config \r')
 console.log(process.env.BOT_TOKEN)
+
+
+
+// discord bot
+const Discord = require('discord.js')
+const bot = new Discord.Client()
 
 async function getJobsOffers(villes, contrats, pagination, query = '', callback = (result) => {}) {
     const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
@@ -124,12 +140,6 @@ async function getJobsOffers(villes, contrats, pagination, query = '', callback 
 
 
 }
-
-
-// discord bot
-const Discord = require('discord.js')
-const bot = new Discord.Client()
-
 // client.channels.get(channelID).send('My Message')
 // ecriture du message
 bot.on('message', message => {
