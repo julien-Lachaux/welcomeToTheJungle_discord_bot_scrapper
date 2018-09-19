@@ -158,3 +158,17 @@ body::-webkit-scrollbar-thumb:hover {
 body::-webkit-scrollbar-thumb:active {	
     background: #64d8cb;
 }
+
+@media screen and (max-width: 1250px) {
+    .jobs .job {
+        width: 100%;
+    }
+
+    .img-container {
+        width: 20% !important;
+    }
+
+    .jobs .job .thumbnail img {
+        width: 30%;
+    }
+}
