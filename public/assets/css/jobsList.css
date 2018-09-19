@@ -118,3 +118,21 @@ header .title h2 {
 .jobs .job a:hover {
     color: #64d8cb;
 }
+
+
+body::-webkit-scrollbar {
+    width: 0.5em;
+    background: #dededf;
+}
+
+body::-webkit-scrollbar-thumb {	
+    background: #26a69a;
+}
+
+body::-webkit-scrollbar-thumb:hover {	
+    background: #64d8cb;
+}
+
+body::-webkit-scrollbar-thumb:active {	
+    background: #64d8cb;
+}
