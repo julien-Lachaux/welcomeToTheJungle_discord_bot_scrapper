@@ -17,8 +17,35 @@ app.get('/', function(req, res) {
     let data = {
         jobs: JSON.parse(fs.readFileSync('data/history.json', "utf8"), false)
     }
-    console.log(data)
-    res.render('jobsList', data);
+
+    // filtre entreprise
+    let cacheEntreprise = {}
+    data.entreprises = data.jobs.filter((elem,index,array) => {
+        return cacheEntreprise[elem.entreprise]?0:cacheEntreprise[elem.entreprise]=1
+    })
+    data.entreprises.forEach(element => {
+        console.log(element.entreprise)
+    })
+
+    // filtre type de contrat
+    let cacheContrat = {}
+    data.contrats = data.jobs.filter((elem,index,array) => {
+        return cacheContrat[elem.contrat]?0:cacheContrat[elem.contrat]=1
+    })
+    data.contrats.forEach(element => {
+        console.log(element.contrat)
+    })
+
+    // filtre localisation
+    let cacheLocalisation = {}
+    data.localisations = data.jobs.filter((elem,index,array) => {
+        return cacheLocalisation[elem.ville]?0:cacheLocalisation[elem.ville]=1
+    })
+    data.contrats.forEach(element => {
+        console.log(element.ville)
+    })
+
+    res.render('jobsList', data)
 });
 
 app.listen(port, function() {

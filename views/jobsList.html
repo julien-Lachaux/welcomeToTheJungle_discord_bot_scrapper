@@ -21,6 +21,28 @@
             <img src="https://cdn.welcometothejungle.co/wttj-front/assets/images/logos/wttj-square.svg?v=3d08f2d8bd6c511554a458de77694a89" alt="welcome to the jungle logo">
         </div>
     </header>
+    <nav>
+        <div class="navbar">
+            <select class="filter">
+                <option class="navBtn" selected>All</option>
+                {{#entreprises}}
+                    <option class="navBtn">{{ entreprise }}</option>
+                {{/entreprises}}
+            </select>
+            <select class="filter">
+                <option class="navBtn" selected>All</option>
+                {{#contrats}}
+                    <option class="navBtn">{{ contrat }}</option>
+                {{/contrats}}
+            </select>
+            <select class="filter">
+                <option class="navBtn" selected>All</option>
+                {{#localisations}}
+                    <option class="navBtn">{{ ville }}</option>
+                {{/localisations}}
+            </select>
+        </div>
+    </nav>
     <section class="jobs"> 
         {{ #jobs }}
             <article class="job">
