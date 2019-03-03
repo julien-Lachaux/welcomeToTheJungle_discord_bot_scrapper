@@ -20,7 +20,7 @@ var getJobsOffers = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return _puppeteer2.default.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+                        return _puppeteer2.default.launch({ args: ['--no-sandbox'] });
 
                     case 2:
                         browser = _context.sent;
@@ -226,8 +226,8 @@ var getJobsOffers = function () {
         return _ref.apply(this, arguments);
     };
 }();
-
-// discord bot
+// client.channels.get(channelID).send('My Message')
+// ecriture du message
 
 
 var _fs = require('fs');
@@ -250,13 +250,52 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _mustacheExpress = require('mustache-express');
+
+var _mustacheExpress2 = _interopRequireDefault(_mustacheExpress);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
 var port = process.env.PORT || 3000;
 
+app.engine('html', (0, _mustacheExpress2.default)());
+app.set('view engine', 'html');
+app.set('views', 'views/');
+app.use('/public', _express2.default.static('public'));
+
 app.get('/', function (req, res) {
-    res.send('BOT ONLINE');
+    var data = {
+        jobs: JSON.parse(_fs2.default.readFileSync('data/history.json', "utf8"), false)
+
+        // filtre entreprise
+    };var cacheEntreprise = {};
+    data.entreprises = data.jobs.filter(function (elem, index, array) {
+        return cacheEntreprise[elem.entreprise] ? 0 : cacheEntreprise[elem.entreprise] = 1;
+    });
+    data.entreprises.forEach(function (element) {
+        console.log(element.entreprise);
+    });
+
+    // filtre type de contrat
+    var cacheContrat = {};
+    data.contrats = data.jobs.filter(function (elem, index, array) {
+        return cacheContrat[elem.contrat] ? 0 : cacheContrat[elem.contrat] = 1;
+    });
+    data.contrats.forEach(function (element) {
+        console.log(element.contrat);
+    });
+
+    // filtre localisation
+    var cacheLocalisation = {};
+    data.localisations = data.jobs.filter(function (elem, index, array) {
+        return cacheLocalisation[elem.ville] ? 0 : cacheLocalisation[elem.ville] = 1;
+    });
+    data.contrats.forEach(function (element) {
+        console.log(element.ville);
+    });
+
+    res.render('jobsList', data);
 });
 
 app.listen(port, function () {
@@ -268,11 +307,10 @@ require('dotenv').config();
 console.log('config \r');
 console.log(process.env.BOT_TOKEN);
 
+// discord bot
 var Discord = require('discord.js');
 var bot = new Discord.Client();
 
-// client.channels.get(channelID).send('My Message')
-// ecriture du message
 bot.on('message', function (message) {
 
     if (message.content === '!activeJobsBot') {
